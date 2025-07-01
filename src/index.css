@@ -142,6 +142,18 @@
     animation: pulseGlow 2s ease-in-out infinite;
   }
   
+  .animate-slide-right {
+    animation: slide-right 20s linear infinite;
+  }
+  
+  .animate-slide-left {
+    animation: slide-left 25s linear infinite;
+  }
+  
+  .animate-slide-right-slow {
+    animation: slide-right-slow 30s linear infinite;
+  }
+  
   .animate-stagger-1 { animation-delay: 0.1s; }
   .animate-stagger-2 { animation-delay: 0.2s; }
   .animate-stagger-3 { animation-delay: 0.3s; }
@@ -273,6 +285,33 @@
   }
   50% { 
     box-shadow: 0 0 40px hsl(142 76% 36% / 0.6);
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-right-slow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
 
