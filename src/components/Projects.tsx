@@ -1,4 +1,3 @@
-
 import { ExternalLink, Github, Star, Clock, Users } from 'lucide-react';
 
 const Projects = () => {
@@ -7,7 +6,7 @@ const Projects = () => {
       title: 'Temp Box',
       description: 'A fast, no-BS tool to generate and manage temporary email addresses. Privacy-first and easy to use with instant email generation.',
       longDescription: 'Built with React and Node.js, featuring real-time inbox management, auto-cleanup, and no registration required.',
-      tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+      tech: ['React', 'Node.js', 'Tailwind CSS'],
       features: [
         'Instant email generation',
         'Real-time inbox updates',
@@ -22,7 +21,7 @@ const Projects = () => {
       status: 'Live',
       featured: true,
       github: 'https://github.com/ShovonSheikh/temp-box',
-      demo: 'https://temp-box.netlify.app',
+      demo: 'https://tempbox.netlify.app',
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop'
     },
     {
