@@ -1,4 +1,5 @@
 import { ExternalLink, Github, Star, Clock, Users } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const Projects = () => {
   const projects = [
@@ -22,7 +23,10 @@ const Projects = () => {
       featured: true,
       github: 'https://github.com/ShovonSheikh/temp-box',
       demo: 'https://tempbox.netlify.app',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop'
+      images: [
+        'https://i.ibb.co/yc5V470R/temp-box-1.png',
+        'https://i.ibb.co/yc5V470R/temp-box-2.png'
+      ]
     },
     {
       title: 'Tele Drive',
@@ -44,7 +48,10 @@ const Projects = () => {
       featured: true,
       github: '#',
       demo: '#',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop'
+      images: [
+        'https://i.ibb.co/ZznwLr2B/tele-drive-1.png',
+        'https://i.ibb.co/ZznwLr2B/tele-drive-2.png'
+      ]
     }
   ];
 
@@ -158,12 +165,30 @@ const Projects = () => {
                   </div>
                   
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="aspect-video rounded-2xl overflow-hidden border border-primary/20 hover-glow">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                      />
+                    <div className="relative">
+                      <Carousel className="w-full">
+                        <CarouselContent>
+                          {project.images.map((image, imageIndex) => (
+                            <CarouselItem key={imageIndex}>
+                              <div className="aspect-video rounded-2xl overflow-hidden border border-primary/20 hover-glow">
+                                <img 
+                                  src={image} 
+                                  alt={`${project.title} screenshot ${imageIndex + 1}`}
+                                  className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                                />
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="left-4 bg-black/50 border-primary/30 hover:bg-primary/20" />
+                        <CarouselNext className="right-4 bg-black/50 border-primary/30 hover:bg-primary/20" />
+                      </Carousel>
+                    </div>
+                    
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground font-mono">
+                        Scroll to preview • Click buttons below to visit
+                      </p>
                     </div>
                   </div>
                 </div>
