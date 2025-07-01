@@ -3,7 +3,7 @@ import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-32 md:py-40 px-6 pb-40">
       <div className="max-w-4xl mx-auto">
         <div className="space-y-12 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-mono font-medium text-white">
@@ -11,12 +11,12 @@ const Contact = () => {
           </h2>
           
           <div className="space-y-8">
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mt-8">
               Got an interesting project or just want to chat about tech? 
               I'm always open to discussing new opportunities and ideas.
             </p>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 mt-12">
               <a 
                 href="mailto:hello@example.com"
                 className="group p-6 bg-secondary rounded-xl border border-border hover:border-primary transition-all duration-300 hover:scale-105"
@@ -27,7 +27,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-mono font-medium text-white">Email</h3>
-                    <p className="text-muted-foreground">hello@example.com</p>
+                    <p className="text-muted-foreground mt-1">hello@example.com</p>
                   </div>
                 </div>
               </a>
@@ -56,7 +56,7 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="pt-8 text-center">
+            <div className="pt-12 text-center">
               <p className="font-mono text-muted-foreground">
                 // response time: usually within 24 hours
               </p>
