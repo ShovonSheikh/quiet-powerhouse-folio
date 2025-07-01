@@ -1,3 +1,4 @@
+
 import { ExternalLink, Github, Star, Clock, Users } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
@@ -24,8 +25,8 @@ const Projects = () => {
       github: 'https://github.com/ShovonSheikh/temp-box',
       demo: 'https://tempbox.netlify.app',
       images: [
-        'https://i.ibb.co/yc5V470R/temp-box-1.png',
-        'https://i.ibb.co/yc5V470R/temp-box-2.png'
+        'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80'
       ]
     },
     {
@@ -49,8 +50,8 @@ const Projects = () => {
       github: '#',
       demo: '#',
       images: [
-        'https://i.ibb.co/ZznwLr2B/tele-drive-1.png',
-        'https://i.ibb.co/ZznwLr2B/tele-drive-2.png'
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop&q=80',
+        'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&q=80'
       ]
     }
   ];
@@ -166,28 +167,35 @@ const Projects = () => {
                   
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <div className="relative">
-                      <Carousel className="w-full">
-                        <CarouselContent>
+                      <Carousel 
+                        className="w-full"
+                        opts={{
+                          align: "start",
+                          loop: true,
+                        }}
+                      >
+                        <CarouselContent className="-ml-2 md:-ml-4">
                           {project.images.map((image, imageIndex) => (
-                            <CarouselItem key={imageIndex}>
+                            <CarouselItem key={imageIndex} className="pl-2 md:pl-4">
                               <div className="aspect-video rounded-2xl overflow-hidden border border-primary/20 hover-glow">
                                 <img 
                                   src={image} 
                                   alt={`${project.title} screenshot ${imageIndex + 1}`}
                                   className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                                  loading="lazy"
                                 />
                               </div>
                             </CarouselItem>
                           ))}
                         </CarouselContent>
-                        <CarouselPrevious className="left-4 bg-black/50 border-primary/30 hover:bg-primary/20" />
-                        <CarouselNext className="right-4 bg-black/50 border-primary/30 hover:bg-primary/20" />
+                        <CarouselPrevious className="-left-12 bg-black/80 border-primary/30 hover:bg-primary/20 hover:border-primary/50" />
+                        <CarouselNext className="-right-12 bg-black/80 border-primary/30 hover:bg-primary/20 hover:border-primary/50" />
                       </Carousel>
                     </div>
                     
-                    <div className="text-center">
+                    <div className="text-center mt-4">
                       <p className="text-sm text-muted-foreground font-mono">
-                        Scroll to preview • Click buttons below to visit
+                        Click arrows to navigate • Hover images to zoom
                       </p>
                     </div>
                   </div>
