@@ -1,4 +1,5 @@
 
+
 import { ExternalLink, Github, Star, Clock, Users } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
@@ -25,8 +26,7 @@ const Projects = () => {
       github: 'https://github.com/ShovonSheikh/temp-box',
       demo: 'https://tempbox.netlify.app',
       images: [
-        'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=800&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80'
+        'https://i.ibb.co/TxRrWdcT/tempbox.png'
       ]
     },
     {
@@ -41,17 +41,16 @@ const Projects = () => {
         'Unlimited Telegram storage'
       ],
       metrics: {
-        status: 'Private',
+        status: 'Live',
         type: 'Cloud Storage',
         build: 'Solo'
       },
-      status: 'Private',
+      status: 'Live',
       featured: true,
       github: '#',
-      demo: '#',
+      demo: 'https://tele-drive.netlify.app',
       images: [
-        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=800&fit=crop&q=80',
-        'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=800&fit=crop&q=80'
+        'https://i.ibb.co/Dfx6VFr9/tele-drive.png'
       ]
     }
   ];
@@ -154,7 +153,7 @@ const Projects = () => {
                           className="group flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all duration-300 hover-lift"
                         >
                           <ExternalLink className="w-4 h-4" />
-                          <span className="font-mono text-sm">Live Demo</span>
+                          <span className="font-mono text-sm">Live Site</span>
                         </a>
                       )}
                       {project.github === '#' && project.demo === '#' && (
@@ -167,35 +166,46 @@ const Projects = () => {
                   
                   <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <div className="relative">
-                      <Carousel 
-                        className="w-full"
-                        opts={{
-                          align: "start",
-                          loop: true,
-                        }}
-                      >
-                        <CarouselContent className="-ml-2 md:-ml-4">
-                          {project.images.map((image, imageIndex) => (
-                            <CarouselItem key={imageIndex} className="pl-2 md:pl-4">
-                              <div className="aspect-video rounded-2xl overflow-hidden border border-primary/20 hover-glow">
-                                <img 
-                                  src={image} 
-                                  alt={`${project.title} screenshot ${imageIndex + 1}`}
-                                  className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
-                                  loading="lazy"
-                                />
-                              </div>
-                            </CarouselItem>
-                          ))}
-                        </CarouselContent>
-                        <CarouselPrevious className="-left-12 bg-black/80 border-primary/30 hover:bg-primary/20 hover:border-primary/50" />
-                        <CarouselNext className="-right-12 bg-black/80 border-primary/30 hover:bg-primary/20 hover:border-primary/50" />
-                      </Carousel>
+                      {project.images.length > 1 ? (
+                        <Carousel 
+                          className="w-full"
+                          opts={{
+                            align: "start",
+                            loop: true,
+                          }}
+                        >
+                          <CarouselContent className="-ml-2 md:-ml-4">
+                            {project.images.map((image, imageIndex) => (
+                              <CarouselItem key={imageIndex} className="pl-2 md:pl-4">
+                                <div className="aspect-video rounded-2xl overflow-hidden border border-primary/20 hover-glow">
+                                  <img 
+                                    src={image} 
+                                    alt={`${project.title} screenshot ${imageIndex + 1}`}
+                                    className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                                    loading="lazy"
+                                  />
+                                </div>
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious className="-left-12 bg-black/80 border-primary/30 hover:bg-primary/20 hover:border-primary/50" />
+                          <CarouselNext className="-right-12 bg-black/80 border-primary/30 hover:bg-primary/20 hover:border-primary/50" />
+                        </Carousel>
+                      ) : (
+                        <div className="aspect-video rounded-2xl overflow-hidden border border-primary/20 hover-glow">
+                          <img 
+                            src={project.images[0]} 
+                            alt={`${project.title} screenshot`}
+                            className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
                     </div>
                     
                     <div className="text-center mt-4">
                       <p className="text-sm text-muted-foreground font-mono">
-                        Click arrows to navigate • Hover images to zoom
+                        {project.images.length > 1 ? 'Click arrows to navigate • Hover images to zoom' : 'Hover image to zoom'}
                       </p>
                     </div>
                   </div>
@@ -240,3 +250,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
