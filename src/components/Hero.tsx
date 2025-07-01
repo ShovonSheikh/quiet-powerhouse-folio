@@ -88,20 +88,30 @@ const Hero = () => {
           <p className="text-sm text-muted-foreground font-mono">
             Building with modern technologies
           </p>
-          <div className="flex justify-center gap-8 opacity-40">
+          <div className="flex flex-wrap justify-center gap-4 opacity-40">
             <div className="text-center">
-              <div className="w-24 h-8 bg-muted-foreground/20 rounded flex items-center justify-center">
+              <div className="w-20 h-8 bg-muted-foreground/20 rounded flex items-center justify-center">
                 <span className="text-xs font-mono">React</span>
               </div>
             </div>
             <div className="text-center">
-              <div className="w-24 h-8 bg-muted-foreground/20 rounded flex items-center justify-center">
-                <span className="text-xs font-mono">Next.js</span>
+              <div className="w-20 h-8 bg-muted-foreground/20 rounded flex items-center justify-center">
+                <span className="text-xs font-mono">TypeScript</span>
               </div>
             </div>
             <div className="text-center">
-              <div className="w-24 h-8 bg-muted-foreground/20 rounded flex items-center justify-center">
-                <span className="text-xs font-mono">Node.js</span>
+              <div className="w-20 h-8 bg-muted-foreground/20 rounded flex items-center justify-center">
+                <span className="text-xs font-mono">Vite</span>
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-8 bg-muted-foreground/20 rounded flex items-center justify-center">
+                <span className="text-xs font-mono">Tailwind</span>
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-8 bg-muted-foreground/20 rounded flex items-center justify-center">
+                <span className="text-xs font-mono">PostCSS</span>
               </div>
             </div>
           </div>
