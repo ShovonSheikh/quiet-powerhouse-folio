@@ -44,27 +44,27 @@ const TechStack = () => {
         { name: 'MongoDB', level: 90, years: '4+' },
         { name: 'PostgreSQL', level: 85, years: '3+' },
         { name: 'Redis', level: 80, years: '2+' },
-        { name: 'Prisma', level: 85, years: '2+' }
+        { name: 'Supabase', level: 85, years: '2+' }
       ]
     },
     {
-      title: "Cloud & DevOps",
+      title: "Deployment",
       icon: Cloud,
       color: "from-orange-500 to-red-500",
       technologies: [
-        { name: 'AWS', level: 85, years: '3+' },
-        { name: 'Docker', level: 80, years: '3+' },
         { name: 'Vercel', level: 90, years: '3+' },
-        { name: 'GitHub Actions', level: 75, years: '2+' }
+        { name: 'Netlify', level: 85, years: '3+' },
+        { name: 'Render', level: 80, years: '2+' },
+        { name: 'Docker', level: 75, years: '2+' }
       ]
     }
   ];
 
   const tools = [
     { icon: GitBranch, name: 'Git & GitHub', desc: 'Version control & collaboration' },
-    { icon: Layers, name: 'Figma', desc: 'Design & prototyping' },
-    { icon: Shield, name: 'Jest', desc: 'Testing & quality assurance' },
-    { icon: Zap, name: 'Vite', desc: 'Build tools & optimization' }
+    { icon: Zap, name: 'Vite', desc: 'Build tools & optimization' },
+    { icon: Shield, name: 'TypeScript', desc: 'Type safety & development' },
+    { icon: Code, name: 'VS Code', desc: 'Development environment' }
   ];
 
   return (

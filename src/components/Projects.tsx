@@ -1,6 +1,5 @@
 
-
-import { ExternalLink, Github, Star, Clock, Users } from 'lucide-react';
+import { ExternalLink, Github, Star, Clock, Users, Code, Server, Database, Cloud } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const Projects = () => {
@@ -16,10 +15,11 @@ const Projects = () => {
         'Auto-cleanup system',
         'No registration required'
       ],
-      metrics: {
-        status: 'Live',
-        type: 'Privacy Tool',
-        build: 'Solo'
+      technologies: {
+        frontend: ['React', 'TypeScript', 'Tailwind CSS'],
+        backend: ['Node.js'],
+        database: ['Supabase'],
+        deployment: ['Netlify']
       },
       status: 'Live',
       featured: true,
@@ -40,22 +40,49 @@ const Projects = () => {
         'Direct file links',
         'Unlimited Telegram storage'
       ],
-      metrics: {
-        status: 'Live',
-        type: 'Cloud Storage',
-        build: 'Solo'
+      technologies: {
+        frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+        backend: ['Node.js'],
+        database: ['Supabase'],
+        deployment: ['Netlify']
       },
       status: 'Live',
       featured: true,
       github: '#',
       demo: 'https://tele-drive.netlify.app',
+      isPrivate: true,
       images: [
-        'https://i.ibb.co/Dfx6VFr9/tele-drive.png'
+        'https://i.ibb.co/xS0N782G/screencapture-tele-drive-netlify-app-2025-07-01-20-48-40.png'
       ]
     }
   ];
 
   const featuredProjects = projects.filter(p => p.featured);
+
+  const getTechIcon = (tech: string) => {
+    const icons: { [key: string]: any } = {
+      'React': Code,
+      'Next.js': Code,
+      'TypeScript': Code,
+      'Tailwind CSS': Code,
+      'Node.js': Server,
+      'Supabase': Database,
+      'Netlify': Cloud,
+      'Vercel': Cloud,
+      'Render': Cloud
+    };
+    return icons[tech] || Code;
+  };
+
+  const getCategoryIcon = (category: string) => {
+    const icons: { [key: string]: any } = {
+      'frontend': Code,
+      'backend': Server,
+      'database': Database,
+      'deployment': Cloud
+    };
+    return icons[category] || Code;
+  };
 
   return (
     <section id="projects" className="py-24 md:py-32 px-6">
@@ -107,33 +134,42 @@ const Projects = () => {
                       </p>
                     </div>
                     
-                    {/* Tech Stack */}
-                    <div className="space-y-3">
+                    {/* Technology Stack */}
+                    <div className="space-y-6">
                       <h4 className="font-mono text-sm text-primary uppercase tracking-wider">Technology Stack</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech, techIndex) => (
-                          <span 
-                            key={techIndex}
-                            className="px-3 py-1 bg-secondary/50 text-secondary-foreground font-mono text-sm rounded-lg border border-primary/10 hover:border-primary/30 transition-colors duration-300"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                      <div className="grid grid-cols-2 gap-4">
+                        {Object.entries(project.technologies).map(([category, techs], categoryIndex) => {
+                          const CategoryIcon = getCategoryIcon(category);
+                          return (
+                            <div key={categoryIndex} className="space-y-3">
+                              <div className="flex items-center gap-2">
+                                <CategoryIcon className="w-4 h-4 text-primary animate-pulse" />
+                                <span className="font-mono text-sm text-primary uppercase tracking-wider">
+                                  {category === 'deployment' ? 'Deployment' : category}
+                                </span>
+                              </div>
+                              <div className="flex flex-wrap gap-2">
+                                {techs.map((tech, techIndex) => {
+                                  const TechIcon = getTechIcon(tech);
+                                  return (
+                                    <div 
+                                      key={techIndex}
+                                      className="group flex items-center gap-2 px-3 py-2 bg-secondary/50 text-secondary-foreground font-mono text-sm rounded-lg border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:bg-primary/5"
+                                    >
+                                      <TechIcon className="w-3 h-3 group-hover:text-primary transition-colors duration-300" />
+                                      <span className="group-hover:text-primary transition-colors duration-300">{tech}</span>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                     
-                    {/* Metrics */}
-                    <div className="grid grid-cols-3 gap-4 p-4 bg-secondary/30 rounded-xl border border-primary/10">
-                      {Object.entries(project.metrics).map(([key, value], metricIndex) => (
-                        <div key={metricIndex} className="text-center">
-                          <div className="font-mono font-bold text-primary text-sm">{value}</div>
-                          <div className="text-xs text-muted-foreground uppercase tracking-wider">{key}</div>
-                        </div>
-                      ))}
-                    </div>
-                    
                     {/* Action Buttons */}
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 flex-wrap">
                       {project.github !== '#' && (
                         <a 
                           href={project.github}
@@ -156,7 +192,12 @@ const Projects = () => {
                           <span className="font-mono text-sm">Live Site</span>
                         </a>
                       )}
-                      {project.github === '#' && project.demo === '#' && (
+                      {project.isPrivate && (
+                        <div className="flex items-center gap-2 px-4 py-3 bg-secondary/50 rounded-xl border border-primary/10">
+                          <span className="font-mono text-xs text-muted-foreground">Private Repository</span>
+                        </div>
+                      )}
+                      {project.github === '#' && project.demo === '#' && !project.isPrivate && (
                         <div className="flex items-center gap-2 px-6 py-3 bg-secondary/50 rounded-xl border border-primary/10">
                           <span className="font-mono text-sm text-muted-foreground">Private Repository</span>
                         </div>
@@ -250,4 +291,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
