@@ -37,7 +37,7 @@ const About = () => {
                 About me
               </div>
               
-              <h2 className="text-4xl md:text-6xl font-sans font-bold text-white leading-tight">
+              <h2 className="text-4xl md:text-6xl font-display font-bold text-white leading-tight">
                 Crafting digital experiences that 
                 <span className="text-gradient"> just work</span>
               </h2>
@@ -85,7 +85,7 @@ const About = () => {
                   </div>
                   
                   <div>
-                    <h3 className="font-mono font-medium text-white text-lg mb-2">
+                    <h3 className="font-display font-semibold text-white text-lg mb-2">
                       {principle.title}
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
@@ -108,7 +108,7 @@ const About = () => {
               { number: "UTC+6", label: "Timezone" }
             ].map((stat, index) => (
               <div key={index} className="space-y-2 animate-fade-in animate-stagger-2">
-                <div className="text-3xl md:text-4xl font-mono font-bold text-primary">
+                <div className="text-3xl md:text-4xl font-display font-bold text-primary">
                   {stat.number}
                 </div>
                 <div className="text-sm text-muted-foreground font-mono">

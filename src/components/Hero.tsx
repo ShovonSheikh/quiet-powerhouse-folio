@@ -49,7 +49,7 @@ const Hero = () => {
             Currently learning & building
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans font-black text-white leading-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-tight">
             Building the
             <br />
             <span className="text-gradient text-glow">future</span> of web
