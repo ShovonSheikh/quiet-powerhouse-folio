@@ -5,23 +5,23 @@ const About = () => {
   const principles = [
     {
       icon: Code,
-      title: "Clean Architecture",
-      description: "I believe in writing code that's not just functional, but elegant and maintainable."
+      title: "Clean & Minimal",
+      description: "I believe in building fast, functional apps with clean UI and straightforward UX."
     },
     {
       icon: Zap,
-      title: "Performance First",
-      description: "Every line of code is optimized for speed, efficiency, and exceptional user experience."
+      title: "Real-World Solutions",
+      description: "Every project I build solves actual problems without unnecessary complexity."
     },
     {
       icon: Target,
-      title: "Solution Focused",
-      description: "I don't just build features—I solve problems and create meaningful digital experiences."
+      title: "Solo Development",
+      description: "I love working independently and building things from the ground up."
     },
     {
       icon: Award,
-      title: "Continuous Growth",
-      description: "Always learning, always evolving, staying ahead of the technology curve."
+      title: "Always Learning",
+      description: "Currently a student, constantly experimenting with new technologies and approaches."
     }
   ];
 
@@ -39,35 +39,35 @@ const About = () => {
               
               <h2 className="text-4xl md:text-6xl font-sans font-bold text-white leading-tight">
                 Crafting digital experiences that 
-                <span className="text-gradient"> matter</span>
+                <span className="text-gradient"> just work</span>
               </h2>
             </div>
             
             <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
               <p>
-                With over 5 years of experience in full-stack development, I specialize in creating 
-                high-performance web applications that scale. I've had the privilege of working with 
-                both innovative startups and established enterprises, delivering solutions that drive real business value.
+                Hi, I'm <strong className="text-white">MD. Shahariar Ahmmed Shovon</strong>, but you can call me 
+                <strong className="text-primary"> Vibe Coder</strong>. I'm a passionate full-stack developer 
+                from Bangladesh who specializes in building fast, functional, and minimal web applications.
               </p>
               
               <p>
-                My expertise spans modern React ecosystems, Node.js backends, and cloud architecture. 
-                I'm passionate about developer experience, performance optimization, and creating tools 
-                that make complex problems simple.
+                As a student developer, I'm constantly learning and experimenting with modern technologies 
+                like React, Next.js, and Node.js. I love working solo on projects that solve real-world 
+                problems without unnecessary complexity.
               </p>
               
               <p>
-                When I'm not coding, you'll find me contributing to open source projects, mentoring 
-                upcoming developers, or exploring the latest in AI and web technologies.
+                My approach is simple: clean UI, straightforward UX, and code that just works. 
+                I focus on shipping projects that provide value while maintaining simplicity and performance.
               </p>
             </div>
             
             <div className="flex flex-wrap gap-4 pt-4">
               <div className="px-6 py-3 bg-secondary/50 rounded-lg border border-primary/20">
-                <span className="font-mono text-primary font-medium">50+ Projects Delivered</span>
+                <span className="font-mono text-primary font-medium">Student Developer</span>
               </div>
               <div className="px-6 py-3 bg-secondary/50 rounded-lg border border-primary/20">
-                <span className="font-mono text-primary font-medium">99.9% Uptime</span>
+                <span className="font-mono text-primary font-medium">Solo Builder</span>
               </div>
             </div>
           </div>
@@ -102,10 +102,10 @@ const About = () => {
         <div className="mt-24 pt-16 border-t border-primary/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: "5+", label: "Years Experience" },
-              { number: "50+", label: "Projects Completed" },
-              { number: "25+", label: "Happy Clients" },
-              { number: "99.9%", label: "Uptime Record" }
+              { number: "Learning", label: "Always Growing" },
+              { number: "Solo", label: "Project Builder" },
+              { number: "BD", label: "Based in Bangladesh" },
+              { number: "UTC+6", label: "Timezone" }
             ].map((stat, index) => (
               <div key={index} className="space-y-2 animate-fade-in animate-stagger-2">
                 <div className="text-3xl md:text-4xl font-mono font-bold text-primary">

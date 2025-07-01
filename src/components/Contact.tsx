@@ -1,5 +1,5 @@
 
-import { Mail, Github, Linkedin, Twitter, MapPin, Clock, MessageCircle, Send } from 'lucide-react';
+import { Mail, Github, Twitter, MapPin, Clock, MessageCircle, Send } from 'lucide-react';
 
 const Contact = () => {
   const contactMethods = [
@@ -7,38 +7,39 @@ const Contact = () => {
       icon: Mail,
       title: 'Email',
       subtitle: 'Primary contact',
-      value: 'hello@elitedev.com',
-      href: 'mailto:hello@elitedev.com',
-      description: 'Best for project inquiries and detailed discussions'
+      value: 'shovonali885@gmail.com',
+      href: 'mailto:shovonali885@gmail.com',
+      description: 'Best for project discussions and collaboration opportunities'
     },
     {
       icon: MessageCircle,
-      title: 'Discord',
+      title: 'Telegram',
       subtitle: 'Quick chat',
-      value: '@elitedev',
-      href: '#',
+      value: '@SHAON_VAI_21',
+      href: 'https://t.me/SHAON_VAI_21',
       description: 'Perfect for quick questions and real-time communication'
     },
     {
       icon: MapPin,
       title: 'Location',
       subtitle: 'Based in',
-      value: 'San Francisco, CA',
+      value: 'Bangladesh (UTC+6)',
       href: '#',
-      description: 'Available for local meetups and collaborations'
+      description: 'Available during Bangladesh Standard Time'
     }
   ];
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', href: '#', followers: '2.5K' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#', followers: '5K+' },
-    { icon: Twitter, label: 'Twitter', href: '#', followers: '1.2K' }
+    { icon: Github, label: 'ShovonSheikh', href: 'https://github.com/ShovonSheikh', followers: 'Main' },
+    { icon: Github, label: 'SwagCoder18', href: 'https://github.com/SwagCoder18', followers: 'Alt' },
+    { icon: Github, label: 'airdropcodex', href: 'https://github.com/airdropcodex', followers: 'Projects' },
+    { icon: Twitter, label: 'Twitter', href: 'https://twitter.com/ali_shovon_2007', followers: '@ali_shovon_2007' }
   ];
 
   const availability = [
-    { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM PST', available: true },
-    { day: 'Saturday', hours: '10:00 AM - 2:00 PM PST', available: true },
-    { day: 'Sunday', hours: 'Emergency only', available: false }
+    { day: 'Weekdays', hours: 'Variable (Student schedule)', available: true },
+    { day: 'Weekends', hours: 'More flexible', available: true },
+    { day: 'Timezone', hours: 'UTC+6 (Bangladesh)', available: true }
   ];
 
   return (
@@ -46,18 +47,18 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center space-y-6 animate-slide-up mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary text-sm font-mono">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            Available for projects
+            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+            Not available for work
           </div>
           
           <h2 className="text-4xl md:text-6xl font-sans font-bold text-white leading-tight">
-            Let's create
-            <span className="text-gradient"> something amazing</span>
+            Let's connect and
+            <span className="text-gradient"> share ideas</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Have a project in mind? I'd love to hear about it. Whether you're a startup looking to build 
-            your MVP or an enterprise needing to scale, let's discuss how we can work together.
+            I'm currently a student and not available for work, but I love connecting with fellow developers, 
+            sharing ideas, and discussing interesting projects. Feel free to reach out!
           </p>
         </div>
 
@@ -68,6 +69,8 @@ const Contact = () => {
               <a 
                 key={index}
                 href={method.href}
+                target={method.href.startsWith('http') ? '_blank' : undefined}
+                rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className="group block glass-strong p-8 rounded-3xl hover-lift hover-glow transition-all duration-300 animate-scale-in animate-stagger-1"
               >
                 <div className="flex items-start gap-6">
@@ -117,12 +120,14 @@ const Contact = () => {
 
             {/* Social Links */}
             <div className="glass p-6 rounded-2xl animate-scale-in animate-stagger-3">
-              <h3 className="font-mono font-medium text-white mb-6">Connect with me</h3>
+              <h3 className="font-mono font-medium text-white mb-6">Find me online</h3>
               <div className="space-y-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group flex items-center justify-between p-3 rounded-xl hover:bg-primary/5 transition-colors duration-300"
                   >
                     <div className="flex items-center gap-3">
@@ -139,14 +144,14 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Response Time */}
+            {/* Status */}
             <div className="glass p-6 rounded-2xl text-center animate-scale-in animate-stagger-4">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <MessageCircle className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-mono font-medium text-white mb-2">Quick Response</h3>
+              <h3 className="font-mono font-medium text-white mb-2">Student Developer</h3>
               <p className="text-sm text-muted-foreground">
-                Usually within <span className="text-primary font-mono">2-4 hours</span> during business hours
+                Currently learning and building <span className="text-primary font-mono">solo projects</span>
               </p>
             </div>
           </div>
@@ -156,26 +161,28 @@ const Contact = () => {
         <div className="text-center pt-16 border-t border-primary/10">
           <div className="glass-strong p-12 rounded-3xl animate-fade-in">
             <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4">
-              Ready to start your project?
+              Interested in my work?
             </h3>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Whether you have a detailed brief or just an idea, I'm here to help bring your vision to life. 
-              Let's schedule a call to discuss your project.
+              While I'm not available for work, I love connecting with fellow developers and sharing ideas.
+              Feel free to reach out to discuss projects, technologies, or just to say hi!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="mailto:hello@elitedev.com?subject=Project Inquiry"
+                href="mailto:shovonali885@gmail.com?subject=Hello from your portfolio"
                 className="group px-8 py-4 bg-primary text-primary-foreground font-mono font-medium rounded-xl hover:bg-primary/90 transition-all duration-300 hover-lift inline-flex items-center justify-center gap-2"
               >
                 <Mail className="w-5 h-5" />
-                <span>Send Project Brief</span>
+                <span>Send an Email</span>
               </a>
               <a 
-                href="#"
+                href="https://t.me/SHAON_VAI_21"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group px-8 py-4 border border-primary/30 text-primary font-mono font-medium rounded-xl hover:border-primary hover:bg-primary/5 transition-all duration-300 hover-glow inline-flex items-center justify-center gap-2"
               >
                 <MessageCircle className="w-5 h-5" />
-                <span>Schedule a Call</span>
+                <span>Chat on Telegram</span>
               </a>
             </div>
           </div>

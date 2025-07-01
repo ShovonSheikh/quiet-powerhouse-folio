@@ -1,77 +1,55 @@
+
 import { ExternalLink, Github, Star, Clock, Users } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'TempMail Pro',
-      description: 'Enterprise-grade temporary email service with advanced security features, real-time inbox management, and API integration. Handling 10M+ emails monthly.',
-      longDescription: 'Built with microservices architecture, featuring automated email parsing, spam detection, and multi-tenant support.',
-      tech: ['React', 'Node.js', 'Redis', 'MongoDB', 'Docker', 'AWS'],
+      title: 'Temp Box',
+      description: 'A fast, no-BS tool to generate and manage temporary email addresses. Privacy-first and easy to use with instant email generation.',
+      longDescription: 'Built with React and Node.js, featuring real-time inbox management, auto-cleanup, and no registration required.',
+      tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
       features: [
-        'Real-time email synchronization',
-        'Advanced spam filtering',
-        'RESTful API with rate limiting',
-        'Multi-language support'
+        'Instant email generation',
+        'Real-time inbox updates',
+        'Auto-cleanup system',
+        'No registration required'
       ],
       metrics: {
-        users: '50K+',
-        uptime: '99.9%',
-        emails: '10M+'
+        status: 'Live',
+        type: 'Privacy Tool',
+        build: 'Solo'
       },
       status: 'Live',
       featured: true,
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/ShovonSheikh/temp-box',
+      demo: 'https://temp-box.netlify.app',
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop'
     },
     {
-      title: 'CloudDrive Telegram',
-      description: 'Revolutionary cloud storage solution leveraging Telegram infrastructure. Unlimited storage with military-grade encryption and instant file sharing.',
-      longDescription: 'Innovative approach to cloud storage using Telegram Bot API, featuring client-side encryption and distributed file management.',
-      tech: ['Next.js', 'Telegram Bot API', 'TypeScript', 'Prisma', 'PostgreSQL'],
+      title: 'Tele Drive',
+      description: 'A cloud storage system powered by a Telegram channel. Works like a lightweight Google Drive with unlimited storage.',
+      longDescription: 'Innovative cloud storage solution using Telegram Bot API, featuring file upload, folder management, and direct file links.',
+      tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Telegram Bot API'],
       features: [
-        'Unlimited file storage',
-        'End-to-end encryption',
-        'Instant file sharing',
-        'Cross-platform sync'
+        'Upload & manage files',
+        'Folder organization system',
+        'Direct file links',
+        'Unlimited Telegram storage'
       ],
       metrics: {
-        users: '25K+',
-        storage: '500TB+',
-        files: '2M+'
+        status: 'Private',
+        type: 'Cloud Storage',
+        build: 'Solo'
       },
-      status: 'Beta',
+      status: 'Private',
       featured: true,
       github: '#',
       demo: '#',
       image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop'
-    },
-    {
-      title: 'DevTools Suite',
-      description: 'Comprehensive development toolkit with code generators, API testing, and performance monitoring. Used by 1000+ developers worldwide.',
-      longDescription: 'All-in-one developer productivity suite with intelligent code generation and advanced debugging capabilities.',
-      tech: ['Vue.js', 'Express', 'SQLite', 'WebSockets', 'Docker'],
-      features: [
-        'Smart code generation',
-        'API endpoint testing',
-        'Performance profiling',
-        'Team collaboration tools'
-      ],
-      metrics: {
-        users: '1K+',
-        tools: '50+',
-        saves: '10K hrs'
-      },
-      status: 'Live',
-      featured: false,
-      github: '#',
-      demo: '#',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop'
     }
   ];
 
   const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
 
   return (
     <section id="projects" className="py-24 md:py-32 px-6">
@@ -79,17 +57,17 @@ const Projects = () => {
         <div className="text-center space-y-6 animate-slide-up mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 text-primary text-sm font-mono">
             <Star className="w-4 h-4" />
-            Featured work
+            Solo projects
           </div>
           
           <h2 className="text-4xl md:text-6xl font-sans font-bold text-white leading-tight">
             Projects that
-            <span className="text-gradient"> drive impact</span>
+            <span className="text-gradient"> solve problems</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A selection of my most impactful work, from startup MVPs to enterprise solutions 
-            serving millions of users worldwide.
+            A collection of my solo projects built with modern technologies. 
+            Each project focuses on solving real-world problems with clean, minimal design.
           </p>
         </div>
 
@@ -142,7 +120,7 @@ const Projects = () => {
                     <div className="grid grid-cols-3 gap-4 p-4 bg-secondary/30 rounded-xl border border-primary/10">
                       {Object.entries(project.metrics).map(([key, value], metricIndex) => (
                         <div key={metricIndex} className="text-center">
-                          <div className="font-mono font-bold text-primary text-lg">{value}</div>
+                          <div className="font-mono font-bold text-primary text-sm">{value}</div>
                           <div className="text-xs text-muted-foreground uppercase tracking-wider">{key}</div>
                         </div>
                       ))}
@@ -150,20 +128,33 @@ const Projects = () => {
                     
                     {/* Action Buttons */}
                     <div className="flex gap-4">
-                      <a 
-                        href={project.github}
-                        className="group flex items-center gap-2 px-6 py-3 border border-primary/30 rounded-xl hover:border-primary hover:bg-primary/5 transition-all duration-300 hover-glow"
-                      >
-                        <Github className="w-4 h-4 group-hover:text-primary transition-colors" />
-                        <span className="font-mono text-sm group-hover:text-primary transition-colors">View Code</span>
-                      </a>
-                      <a 
-                        href={project.demo}
-                        className="group flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all duration-300 hover-lift"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        <span className="font-mono text-sm">Live Demo</span>
-                      </a>
+                      {project.github !== '#' && (
+                        <a 
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center gap-2 px-6 py-3 border border-primary/30 rounded-xl hover:border-primary hover:bg-primary/5 transition-all duration-300 hover-glow"
+                        >
+                          <Github className="w-4 h-4 group-hover:text-primary transition-colors" />
+                          <span className="font-mono text-sm group-hover:text-primary transition-colors">View Code</span>
+                        </a>
+                      )}
+                      {project.demo !== '#' && (
+                        <a 
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-all duration-300 hover-lift"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          <span className="font-mono text-sm">Live Demo</span>
+                        </a>
+                      )}
+                      {project.github === '#' && project.demo === '#' && (
+                        <div className="flex items-center gap-2 px-6 py-3 bg-secondary/50 rounded-xl border border-primary/10">
+                          <span className="font-mono text-sm text-muted-foreground">Private Repository</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                   
@@ -182,80 +173,35 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Other Projects */}
-        {otherProjects.length > 0 && (
-          <div className="space-y-12">
-            <h3 className="text-2xl md:text-3xl font-sans font-bold text-white text-center">
-              More Projects
+        {/* Call to Action */}
+        <div className="text-center pt-16 border-t border-primary/10">
+          <div className="glass-strong p-12 rounded-3xl animate-fade-in">
+            <h3 className="text-2xl md:text-3xl font-sans font-bold text-white mb-4">
+              More projects coming soon
             </h3>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {otherProjects.map((project, index) => (
-                <div key={index} className="project-card p-6 rounded-2xl hover-lift animate-scale-in animate-stagger-3">
-                  <div className="space-y-6">
-                    <div className="aspect-video rounded-lg overflow-hidden border border-primary/10">
-                      <img 
-                        src={project.image} 
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                      />
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-sans font-bold text-white text-lg">{project.title}</h4>
-                        <span className={`px-2 py-1 text-xs font-mono rounded ${
-                          project.status === 'Live' 
-                            ? 'bg-primary/20 text-primary' 
-                            : 'bg-yellow-500/20 text-yellow-400'
-                        }`}>
-                          {project.status}
-                        </span>
-                      </div>
-                      
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-1">
-                        {project.tech.slice(0, 3).map((tech, techIndex) => (
-                          <span 
-                            key={techIndex}
-                            className="px-2 py-1 bg-secondary/50 text-secondary-foreground font-mono text-xs rounded"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.tech.length > 3 && (
-                          <span className="px-2 py-1 text-muted-foreground font-mono text-xs">
-                            +{project.tech.length - 3} more
-                          </span>
-                        )}
-                      </div>
-                      
-                      <div className="flex gap-3 pt-2">
-                        <a 
-                          href={project.github}
-                          className="flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors"
-                        >
-                          <Github className="w-4 h-4" />
-                          <span className="font-mono text-xs">Code</span>
-                        </a>
-                        <a 
-                          href={project.demo}
-                          className="flex items-center gap-1 text-primary hover:text-primary/80 transition-colors"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span className="font-mono text-xs">Demo</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              I'm constantly learning and building new projects. Follow my journey on GitHub 
+              to see what I'm working on next.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="https://github.com/ShovonSheikh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-4 bg-primary text-primary-foreground font-mono font-medium rounded-xl hover:bg-primary/90 transition-all duration-300 hover-lift inline-flex items-center justify-center gap-2"
+              >
+                <Github className="w-5 h-5" />
+                <span>Follow on GitHub</span>
+              </a>
+              <a 
+                href="#contact"
+                className="group px-8 py-4 border border-primary/30 text-primary font-mono font-medium rounded-xl hover:border-primary hover:bg-primary/5 transition-all duration-300 hover-glow inline-flex items-center justify-center gap-2"
+              >
+                <span>Get In Touch</span>
+              </a>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
