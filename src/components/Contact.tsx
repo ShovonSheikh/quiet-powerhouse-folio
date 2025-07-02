@@ -1,5 +1,5 @@
-
 import { Mail, Github, Twitter, MapPin, Clock, MessageCircle, Send } from 'lucide-react';
+import SpotlightCard from './SpotlightCard';
 
 const Contact = () => {
   const contactMethods = [
@@ -110,7 +110,16 @@ const Contact = () => {
                   <div key={index} className="space-y-1">
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-mono text-white">{slot.day}</span>
-                      <div className={`w-2 h-2 rounded-full ${slot.available ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                      <div className={`w-2 h-2 rounded-full ${slot.available ? '' : 'bg-red-500'}`}
+                        >
+                        {slot.available ? (
+                          <span>
+                            <SpotlightCard className="w-2 h-2 rounded-full p-0 m-0" spotlightColor="rgba(0, 229, 255, 0.2)">
+                              <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                            </SpotlightCard>
+                          </span>
+                        ) : null}
+                      </div>
                     </div>
                     <p className="text-xs text-muted-foreground">{slot.hours}</p>
                   </div>

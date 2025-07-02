@@ -223,6 +223,15 @@
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
+  
+  /* Infinite scroll animation */
+  .animate-infinite-scroll {
+    animation: infinite-scroll 20s linear infinite;
+  }
+  @keyframes infinite-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
 }
 
 @keyframes float {

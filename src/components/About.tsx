@@ -1,4 +1,3 @@
-
 import { Code, Zap, Target, Award } from 'lucide-react';
 
 const About = () => {
@@ -80,7 +79,7 @@ const About = () => {
               <div className="absolute -inset-2 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl"></div>
               
               {/* Main image container */}
-              <div className="relative w-80 h-96 rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl">
+              <div className="relative w-[28rem] h-[32rem] rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl">
                 <img 
                   src="https://i.ibb.co/Y7nhqV28/photo-2025-07-01-10-24-29.jpg" 
                   alt="MD. Shahariar Ahmmed Shovon - Vibe Coder"
