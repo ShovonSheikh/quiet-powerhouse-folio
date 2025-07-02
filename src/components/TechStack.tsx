@@ -66,33 +66,14 @@ const TechStack = () => {
 
         {/* Enhanced Sliding Technology Row */}
         <div className="mb-20 relative">
-
-          
+          {/* Fade overlays removed as requested */}
           {/* Seamless Triple Row Container */}
           <div className="relative overflow-hidden py-4">
-            <motion.div
-              className="flex gap-12 whitespace-nowrap will-change-transform"
-              initial={{ x: 0 }}
-              animate={{ x: '-50%' }}
-              transition={{
-                ease: 'linear',
-                duration: 14,
-                repeat: Infinity,
-              }}
-            >
+            <div className="flex gap-12 whitespace-nowrap animate-infinite-scroll will-change-transform">
               {seamlessRow.map((tech, index) => (
                 <div key={`${tech.name}-${index}`} className="flex-shrink-0 group w-44 h-48 md:w-52 md:h-56 flex flex-col items-center justify-center">
                   <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${tech.color} p-4 flex items-center justify-center hover-lift hover-glow transition-all duration-300 shadow-xl`}>
-                    <tech.icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
-                  </div>
-                  <p className="text-center mt-4 font-mono text-base md:text-lg text-muted-foreground group-hover:text-primary transition-colors">
-                    {tech.name}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
-                  <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${tech.color} p-4 flex items-center justify-center hover-lift hover-glow transition-all duration-300 shadow-xl`}>
-                    <tech.icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
+                    {React.createElement(tech.icon, { className: "w-12 h-12 md:w-16 md:h-16 text-white" })}
                   </div>
                   <p className="text-center mt-4 font-mono text-base md:text-lg text-muted-foreground group-hover:text-primary transition-colors">
                     {tech.name}
