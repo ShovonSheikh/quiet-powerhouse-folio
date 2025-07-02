@@ -232,6 +232,12 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
+  
+  /* Seamless infinite scroll for tripled arrays */
+  @keyframes infinite-scroll-seamless {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
 }
 
 @keyframes float {

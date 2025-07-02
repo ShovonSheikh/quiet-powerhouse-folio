@@ -40,8 +40,8 @@ const TechStack = () => {
     { name: 'Git & GitHub', icon: SiGithub, color: 'from-gray-700 to-gray-900' }
   ];
 
-  // Enhanced: One seamless, perfectly looping row
-  const seamlessRow = [...technologies, ...technologies];
+  // Enhanced: Triple array for seamless infinite loop
+  const seamlessRow = [...technologies, ...technologies, ...technologies];
 
   return (
     <section id="tech" className="py-24 md:py-32 px-6 overflow-hidden">
@@ -65,14 +65,21 @@ const TechStack = () => {
 
         {/* Enhanced Sliding Technology Row */}
         <div className="mb-20 relative">
-          {/* Improved fade overlays for smooth edge transitions */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background from-10% via-background/60 via-70% to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-32 z-10 bg-gradient-to-l from-background from-10% via-background/60 via-70% to-transparent" />
-          {/* Single Seamless Row - Professional Animation */}
+          {/* Smooth fade overlays for seamless edge transitions */}
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-40 z-10 bg-gradient-to-r from-background from-0% via-background/90 via-30% via-background/20 via-80% to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-40 z-10 bg-gradient-to-l from-background from-0% via-background/90 via-30% via-background/20 via-80% to-transparent" />
+          
+          {/* Seamless Triple Row Container */}
           <div className="relative overflow-hidden py-4">
-            <div className="flex gap-12 whitespace-nowrap animate-infinite-scroll will-change-transform">
+            <div 
+              className="flex gap-12 whitespace-nowrap animate-infinite-scroll will-change-transform"
+              style={{
+                width: 'calc(300% + 24px)', // Account for gaps in tripled array
+                animation: 'infinite-scroll-seamless 30s linear infinite'
+              }}
+            >
               {seamlessRow.map((tech, index) => (
-                <div key={index} className="flex-shrink-0 group w-44 h-48 md:w-52 md:h-56 flex flex-col items-center justify-center">
+                <div key={`${tech.name}-${index}`} className="flex-shrink-0 group w-44 h-48 md:w-52 md:h-56 flex flex-col items-center justify-center">
                   <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${tech.color} p-4 flex items-center justify-center hover-lift hover-glow transition-all duration-300 shadow-xl`}>
                     <tech.icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
                   </div>
