@@ -1,3 +1,14 @@
+/*
+Add to global CSS for infinite scroll animation (if not already present):
+.animate-infinite-scroll {
+  animation: infinite-scroll 14s linear infinite;
+}
+@keyframes infinite-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+*/
+
 import { 
   Palette, 
   Layers, 
@@ -13,7 +24,6 @@ import {
 } from 'lucide-react';
 import { SiVercel, SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiNodedotjs, SiSupabase, SiRender, SiNetlify, SiVite, SiGithub } from 'react-icons/si';
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const TechStack = () => {
   const technologies = [
@@ -30,8 +40,8 @@ const TechStack = () => {
     { name: 'Git & GitHub', icon: SiGithub, color: 'from-gray-700 to-gray-900' }
   ];
 
-  // Double the array for seamless looping
-  const seamlessRow = [...technologies, ...technologies];
+  // Enhanced: Triple array for seamless infinite loop
+  const seamlessRow = [...technologies, ...technologies, ...technologies];
 
   return (
     <section id="tech" className="py-24 md:py-32 px-6 overflow-hidden">
@@ -53,26 +63,19 @@ const TechStack = () => {
           </p>
         </div>
 
-        {/* Framer Motion Infinite Scroll */}
+        {/* Enhanced Sliding Technology Row */}
         <div className="mb-20 relative">
           {/* Smooth fade overlays for seamless edge transitions */}
           <div className="pointer-events-none absolute left-0 top-0 h-full w-40 z-10 bg-gradient-to-r from-background from-0% via-background/90 via-30% via-background/20 via-80% to-transparent" />
           <div className="pointer-events-none absolute right-0 top-0 h-full w-40 z-10 bg-gradient-to-l from-background from-0% via-background/90 via-30% via-background/20 via-80% to-transparent" />
           
-          {/* Seamless Scroll Container */}
+          {/* Seamless Triple Row Container */}
           <div className="relative overflow-hidden py-4">
-            <motion.div 
-              className="flex gap-12 whitespace-nowrap will-change-transform"
-              animate={{
-                x: [0, -100 * (technologies.length * (44 + 12))] // Move by total width of one set
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 30,
-                  ease: "linear",
-                },
+            <div 
+              className="flex gap-12 whitespace-nowrap animate-infinite-scroll will-change-transform"
+              style={{
+                width: 'calc(300% + 24px)', // Account for gaps in tripled array
+                animation: 'infinite-scroll-seamless 30s linear infinite'
               }}
             >
               {seamlessRow.map((tech, index) => (
@@ -85,7 +88,7 @@ const TechStack = () => {
                   </p>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
 
