@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { SiVercel, SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiNodedotjs, SiSupabase, SiRender, SiNetlify, SiVite, SiGithub } from 'react-icons/si';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const TechStack = () => {
   const technologies = [
@@ -65,21 +66,31 @@ const TechStack = () => {
 
         {/* Enhanced Sliding Technology Row */}
         <div className="mb-20 relative">
-          {/* Smooth fade overlays for seamless edge transitions */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-40 z-10 bg-gradient-to-r from-background from-0% via-background/90 via-30% via-background/20 via-80% to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-40 z-10 bg-gradient-to-l from-background from-0% via-background/90 via-30% via-background/20 via-80% to-transparent" />
+
           
           {/* Seamless Triple Row Container */}
           <div className="relative overflow-hidden py-4">
-            <div 
-              className="flex gap-12 whitespace-nowrap animate-infinite-scroll will-change-transform"
-              style={{
-                width: 'calc(300% + 24px)', // Account for gaps in tripled array
-                animation: 'infinite-scroll-seamless 30s linear infinite'
+            <motion.div
+              className="flex gap-12 whitespace-nowrap will-change-transform"
+              initial={{ x: 0 }}
+              animate={{ x: '-50%' }}
+              transition={{
+                ease: 'linear',
+                duration: 14,
+                repeat: Infinity,
               }}
             >
               {seamlessRow.map((tech, index) => (
                 <div key={`${tech.name}-${index}`} className="flex-shrink-0 group w-44 h-48 md:w-52 md:h-56 flex flex-col items-center justify-center">
+                  <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${tech.color} p-4 flex items-center justify-center hover-lift hover-glow transition-all duration-300 shadow-xl`}>
+                    <tech.icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
+                  </div>
+                  <p className="text-center mt-4 font-mono text-base md:text-lg text-muted-foreground group-hover:text-primary transition-colors">
+                    {tech.name}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
                   <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${tech.color} p-4 flex items-center justify-center hover-lift hover-glow transition-all duration-300 shadow-xl`}>
                     <tech.icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
                   </div>
