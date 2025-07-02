@@ -226,11 +226,11 @@
   
   /* Infinite scroll animation */
   .animate-infinite-scroll {
-    animation: infinite-scroll 20s linear infinite;
+    animation: infinite-scroll 25s linear infinite;
   }
   @keyframes infinite-scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(-50%); }
   }
 }
 

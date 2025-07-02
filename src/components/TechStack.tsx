@@ -63,21 +63,20 @@ const TechStack = () => {
           </p>
         </div>
 
-        {/* Enhanced Sliding Technology Row - Blur Effects removed for edge-to-edge look */}
+        {/* Enhanced Sliding Technology Row */}
         <div className="mb-20 relative">
-          {/* Fade overlays for edge fade-in/fade-out */}
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-background via-background/80 to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-background via-background/80 to-transparent" />
+          {/* Improved fade overlays for smooth edge transitions */}
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-32 z-10 bg-gradient-to-r from-background from-10% via-background/60 via-70% to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-32 z-10 bg-gradient-to-l from-background from-10% via-background/60 via-70% to-transparent" />
           {/* Single Seamless Row - Professional Animation */}
-          <div className="relative overflow-hidden">
-            <div className="flex gap-16 whitespace-nowrap animate-infinite-scroll will-change-transform">
+          <div className="relative overflow-hidden py-4">
+            <div className="flex gap-12 whitespace-nowrap animate-infinite-scroll will-change-transform">
               {seamlessRow.map((tech, index) => (
-                // Remove SpotlightCard from tech stack icons, use only div
-                <div key={index} className="flex-shrink-0 group w-48 h-52 md:w-56 md:h-60 flex flex-col items-center justify-center">
-                  <div className={`w-24 h-24 md:w-28 md:h-28 rounded-full bg-gradient-to-br ${tech.color} p-5 flex items-center justify-center hover-lift hover-glow transition-all duration-300 shadow-xl`}>
-                    <tech.icon className="w-16 h-16 md:w-20 md:h-20 text-white" />
+                <div key={index} className="flex-shrink-0 group w-44 h-48 md:w-52 md:h-56 flex flex-col items-center justify-center">
+                  <div className={`w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${tech.color} p-4 flex items-center justify-center hover-lift hover-glow transition-all duration-300 shadow-xl`}>
+                    <tech.icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
                   </div>
-                  <p className="text-center mt-5 font-mono text-lg md:text-xl text-muted-foreground group-hover:text-primary transition-colors">
+                  <p className="text-center mt-4 font-mono text-base md:text-lg text-muted-foreground group-hover:text-primary transition-colors">
                     {tech.name}
                   </p>
                 </div>
